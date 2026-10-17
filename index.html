@@ -70,7 +70,7 @@ button:focus-visible{outline:4px solid #fff;outline-offset:3px}
   <h1>FELIZ<br>ANIVERSÁRIO<br>FREDERICO 🎂</h1>
   <div class="btns" id="btns">
     <button id="no">Obrigado</button>
-    <button id="yes">Feb do rato</button>
+    <button id="yes">Feb. do rato</button>
   </div>
   <div class="hint" id="hint">Escolhe aí, aniversariante 👀</div>
 </main>
@@ -100,8 +100,8 @@ button:focus-visible{outline:4px solid #fff;outline-offset:3px}
     <path fill="#123614" d="M40 262 l7 -20 l7 20z M58 266 l8 -26 l8 26z M120 258 l7 -19 l7 19z M600 258 l8 -24 l8 24z M622 262 l7 -20 l7 20z M700 262 l8 -26 l8 26z M300 252 l6 -18 l6 18z M520 262 l6 -18 l6 18z"/>
   </svg></div>
   <div class="msg">
-    <h2>FEB DO RATO! 🐭🎉</h2>
-    <p>Frederico, você é um caba da hora, desejo só alegrias pra vc! 🌞 Já tá podendo ser preso, cuidado com os home 👀🚔 Que você continue passeando por aí, não deixe a Feb do rato lhe pegar e que a polícia passe bem longe! Feliz aniversário, parceiro! 🎂🍻</p>
+    <h2>FEB- DO RATO! 🐭🎉</h2>
+    <p>Frederico, você é um caba da hora, desejo só alegrias pra vc! 🌞 Já tá podendo ser preso, cuidado com os home 👀🚔 Que você responda as mensagens mais rápido 😐, não deixe a Feb-do-rato lhe pegar. Feliz aniversário, mano. Tudo de bom pra ti! 🎂🍻</p>
   </div>
   <div class="bar">
     <button id="again">🔁 De novo</button>
@@ -129,18 +129,16 @@ no.addEventListener('click',()=>{
   }
   jump();
   clearInterval(runner);
-  runner=setInterval(jump,750);
+  runner=setInterval(jump,900);
 });
 
-const fruits=['🍌','🍉','🍍','🍓','🍅','🥭','🍑','🍒','🥥','🍋'];
-const horns=['📯','🎺','🥳','🐭','🎉'];
-const words=['KKKKKKK','FEB!','🐭🐭🐭','AAAAH','SE LASCOU','CORNETA!'];
+const fruits=['🍉','🍍','🍓','🍅','🥭','🍒','🥥','🍋'];
 let loop=null;
 
 function throwFruit(){
   const el=document.createElement('div');
   el.className='f';
-  const pool=Math.random()<.2?horns:fruits;
+  const pool=fruits;
   el.textContent=pool[Math.floor(Math.random()*pool.length)];
   const left=Math.random()<.5,W=innerWidth,H=innerHeight;
   const sx=left?-60:W+60, sy=H*(.5+Math.random()*.4);
@@ -154,21 +152,15 @@ function throwFruit(){
     {transform:`translate(${tx-sx}px,${ty-sy}px) rotate(720deg) scale(1.5)`}
   ],{duration:1100+Math.random()*500,easing:'ease-in'});
   a.onfinish=()=>{
-    el.textContent='💥';
-    const k=document.createElement('div');
-    k.className='kk';k.textContent=words[Math.floor(Math.random()*words.length)];
-    k.style.left=Math.max(8,tx-40)+'px';k.style.top=ty+'px';k.style.setProperty('--r',(Math.random()*30-15)+'deg');
-    show.appendChild(k);
     el.animate([{transform:`translate(${tx-sx}px,${ty-sy}px) scale(1.5)`,opacity:1},
-      {transform:`translate(${tx-sx}px,${ty-sy}px) scale(2.6)`,opacity:0}],{duration:500}).onfinish=()=>el.remove();
-    setTimeout(()=>k.remove(),1800);
+      {transform:`translate(${tx-sx}px,${ty-sy}px) scale(2.2)`,opacity:0}],{duration:400}).onfinish=()=>el.remove();
   };
 }
 function start(){
   show.classList.remove('on');void show.offsetWidth;
   show.classList.add('on');
   clearInterval(loop);
-  loop=setInterval(throwFruit,260);
+  loop=setInterval(()=>{throwFruit();throwFruit();},170);
   if(navigator.vibrate)navigator.vibrate([200,80,200]);
 }
 function stop(){clearInterval(loop);show.classList.remove('on');
