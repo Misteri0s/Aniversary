@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FELIZ ANIVERSÁRIO FREDERICO 🎂</title>
+<style>
+:root{--bg1:#2b0a5e;--bg2:#ff3e8a;--ink:#fff7e0;--red:#e5262b;--green:#17b83f;--sun:#ffd23a;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden}
+body{font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;color:var(--ink);
+ background:radial-gradient(circle at 50% 120%,var(--bg2),var(--bg1) 70%);background-color:var(--bg1)}
+main{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:22px}
+h1{font-family:Impact,"Arial Black",sans-serif;font-weight:900;font-size:clamp(2.4rem,11vw,5.5rem);line-height:1;margin:0;
+ letter-spacing:.02em;text-shadow:0 4px 0 #0006,0 0 30px #ffd23a88;animation:bob 1.6s ease-in-out infinite}
+.cake{font-size:clamp(3rem,16vw,6rem);animation:spin 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(-1.5deg)}}
+@keyframes spin{25%{transform:rotate(-12deg) scale(1.1)}75%{transform:rotate(12deg) scale(1.1)}}
+.btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;min-height:70px}
+button{font:inherit;font-weight:800;font-size:1.25rem;color:#fff;border:0;border-radius:999px;padding:16px 30px;cursor:pointer;
+ box-shadow:0 6px 0 #0005;transition:transform .12s}
+button:active{transform:translateY(4px);box-shadow:0 2px 0 #0005}
+button:focus-visible{outline:4px solid #fff;outline-offset:3px}
+#no{background:var(--red)}#yes{background:var(--green)}
+#no.run{position:fixed;z-index:5;transition:left .6s cubic-bezier(.5,1.6,.4,.9),top .6s cubic-bezier(.5,1.6,.4,.9)}
+.hint{opacity:.8;font-size:.95rem}
+#show{position:fixed;inset:0;z-index:20;display:none;overflow:hidden;background:linear-gradient(#ff9a3c,#ff4f81 55%,#5b1a8f)}
+#show.on{display:block;animation:shake .35s 6}
+@keyframes shake{25%{transform:translate(-8px,5px)}75%{transform:translate(8px,-5px)}}
+.rays{position:absolute;left:50%;bottom:-60vmax;width:120vmax;height:120vmax;margin-left:-60vmax;
+ background:repeating-conic-gradient(#fff2a099 0 10deg,#0000 10deg 20deg);animation:rot 8s linear infinite;border-radius:50%}
+@keyframes rot{to{transform:rotate(360deg)}}
+.sun{position:absolute;left:50%;bottom:-30vmin;width:min(62vmin,420px);height:min(62vmin,420px);margin-left:calc(min(62vmin,420px)/-2);
+ border-radius:50%;background:radial-gradient(circle,#fff6a8,var(--sun) 60%,#ff9d00);box-shadow:0 0 140px 60px #ffd23add;
+ display:grid;place-items:center;font-size:min(36vmin,230px);overflow:hidden;transform:translateY(60%)}
+#show.on .sun{animation:rise 2.4s .3s cubic-bezier(.2,1.3,.4,1) forwards}
+@keyframes rise{to{transform:translateY(-72vmin)}}
+.sun{z-index:1}
+.mt{position:absolute;left:0;right:0;bottom:0;height:36vh;z-index:2;pointer-events:none}
+.mt svg{width:100%;height:100%;display:block}
+.siren{position:absolute;inset:0;z-index:2;pointer-events:none;display:none}
+#show.on .siren{display:block;animation:sir .7s steps(1) infinite 2.6s}
+@keyframes sir{0%{background:radial-gradient(circle at 0% 0%,#ff1f3dcc,#0000 55%)}50%{background:radial-gradient(circle at 100% 0%,#1f6bffcc,#0000 55%)}}
+.wanted{position:absolute;right:4vw;bottom:calc(env(safe-area-inset-bottom,0px) + 78px);width:min(38vw,160px);z-index:3;background:#e8cf9a;color:#3b2410;border:3px solid #6b4423;padding:6px 6px 8px;text-align:center;font-family:Impact,"Arial Black",sans-serif;line-height:1.15;opacity:0;transform:rotate(6deg) scale(0);box-shadow:0 6px 14px #0008}
+.wanted b{display:block;font-size:clamp(.95rem,4vw,1.3rem);letter-spacing:.04em}
+.wanted small{display:block;font-family:"Trebuchet MS",system-ui,sans-serif;font-weight:800;font-size:.68rem;margin-top:3px}
+.wanted .pic{font-size:clamp(2.6rem,12vw,3.8rem);background:#c9a468;border:2px solid #6b4423;margin:4px 0;filter:sepia(.6)}
+#show.on .wanted{animation:slam .5s 3s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes slam{from{opacity:0;transform:rotate(6deg) scale(3)}60%{opacity:1}to{opacity:1;transform:rotate(6deg) scale(1)}}
+.msg{position:absolute;top:calc(env(safe-area-inset-top,0px) + 4vh);left:0;right:0;padding:0 16px;text-align:center;z-index:3}
+.msg h2{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(2rem,10vw,4.2rem);margin:0;text-shadow:0 4px 0 #000a;
+ animation:pop .6s ease-out both,bob 1.2s .6s ease-in-out infinite}
+.msg p{margin:10px auto 0;max-width:38ch;font-size:clamp(1rem,4.4vw,1.35rem);font-weight:700;line-height:1.35;
+ background:#0007;border-radius:18px;padding:12px 16px;animation:pop .6s .5s ease-out both}
+@keyframes pop{from{transform:scale(0) rotate(-20deg)}to{transform:none}}
+.f{position:absolute;font-size:clamp(2.2rem,9vw,4rem);z-index:2;will-change:transform;pointer-events:none}
+.kk{position:absolute;font-weight:900;font-size:clamp(1.4rem,6vw,2.6rem);color:#fff;text-shadow:0 3px 0 #000;z-index:4;pointer-events:none;
+ animation:kk 1.8s ease-out forwards}
+@keyframes kk{from{transform:scale(.3) rotate(var(--r));opacity:1}80%{opacity:1}to{transform:translateY(-120px) scale(1.4) rotate(var(--r));opacity:0}}
+.bar{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);left:0;right:0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;z-index:6}
+.bar button,.bar label{font-size:1rem;padding:12px 20px;background:#000a;border-radius:999px;font-weight:800;cursor:pointer;color:#fff}
+.bar input{display:none}
+@media (prefers-reduced-motion:reduce){h1,.cake,.rays{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <div class="cake">🎂</div>
+  <h1>FELIZ<br>ANIVERSÁRIO<br>FREDERICO 🎂</h1>
+  <div class="btns" id="btns">
+    <button id="no">Obrigado</button>
+    <button id="yes">Feb do rato</button>
+  </div>
+  <div class="hint" id="hint">Escolhe aí, aniversariante 👀</div>
+</main>
+
+<section id="show" aria-live="polite">
+  <div class="rays"></div>
+  <div class="sun" id="sun">🥷</div>
+  <div class="siren"></div>
+  <div class="wanted"><b>PROCURADO</b><div class="pic">🥷</div><b>FREDERICO</b><small>Vivo ou de rolê</small><small>RECOMPENSA: 1 BOLO 🎂</small></div>
+  <div class="mt"><svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9c6a0"/><stop offset="1" stop-color="#5f8c6a"/></linearGradient>
+      <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cb552"/><stop offset="1" stop-color="#2f6a2e"/></linearGradient>
+      <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d7a2a"/><stop offset="1" stop-color="#10300f"/></linearGradient>
+      <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="9"/></filter>
+    </defs>
+    <g filter="url(#rough)">
+      <path fill="url(#g1)" d="M-10 230 L80 190 L150 205 L230 150 L300 195 L380 140 L460 185 L540 150 L620 190 L700 160 L810 200 V310 H-10Z"/>
+      <path fill="url(#g2)" d="M-10 260 L90 215 L170 235 L260 175 L330 215 L430 120 L520 190 L600 160 L690 215 L770 190 L810 205 V310 H-10Z"/>
+      <path fill="#a8d86a" opacity=".35" d="M430 120 L330 215 L385 205 L420 160Z"/>
+      <path fill="#143d16" opacity=".4" d="M430 120 L520 190 L470 202 L440 170 L455 148Z"/>
+      <path fill="#143d16" opacity=".35" d="M260 175 L330 215 L290 224 L270 200Z"/>
+      <path fill="#a8d86a" opacity=".3" d="M260 175 L170 235 L225 222 L252 195Z"/>
+      <path fill="#143d16" opacity=".3" d="M600 160 L690 215 L640 222 L612 188Z"/>
+      <path fill="url(#g3)" d="M-10 282 L100 245 L200 265 L320 240 L430 270 L560 245 L680 268 L810 250 V310 H-10Z"/>
+    </g>
+    <path fill="#123614" d="M40 262 l7 -20 l7 20z M58 266 l8 -26 l8 26z M120 258 l7 -19 l7 19z M600 258 l8 -24 l8 24z M622 262 l7 -20 l7 20z M700 262 l8 -26 l8 26z M300 252 l6 -18 l6 18z M520 262 l6 -18 l6 18z"/>
+  </svg></div>
+  <div class="msg">
+    <h2>FEB DO RATO! 🐭🎉</h2>
+    <p>Frederico, você é um caba da hora, desejo só alegrias pra vc! 🌞 Já tá podendo ser preso, cuidado com os home 👀🚔 Que você continue passeando por aí, não deixe a Feb do rato lhe pegar e que a polícia passe bem longe! Feliz aniversário, parceiro! 🎂🍻</p>
+  </div>
+  <div class="bar">
+    <button id="again">🔁 De novo</button>
+    <button id="close">Fechar</button>
+  </div>
+</section>
+
+<script>
+const $=s=>document.querySelector(s);
+const no=$('#no'),yes=$('#yes'),show=$('#show');
+let runner=null;
+
+function jump(){
+  const w=innerWidth-no.offsetWidth-16,h=innerHeight-no.offsetHeight-16;
+  no.style.left=8+Math.random()*w+'px';
+  no.style.top=8+Math.random()*h+'px';
+}
+no.addEventListener('click',()=>{
+  if(!no.classList.contains('run')){
+    const r=no.getBoundingClientRect();
+    no.style.left=r.left+'px';no.style.top=r.top+'px';
+    no.classList.add('run');
+    void no.offsetWidth;
+    $('#hint').textContent='Ué, cadê o botão? 🏃💨';
+  }
+  jump();
+  clearInterval(runner);
+  runner=setInterval(jump,750);
+});
+
+const fruits=['🍌','🍉','🍍','🍓','🍅','🥭','🍑','🍒','🥥','🍋'];
+const horns=['📯','🎺','🥳','🐭','🎉'];
+const words=['KKKKKKK','FEB!','🐭🐭🐭','AAAAH','SE LASCOU','CORNETA!'];
+let loop=null;
+
+function throwFruit(){
+  const el=document.createElement('div');
+  el.className='f';
+  const pool=Math.random()<.2?horns:fruits;
+  el.textContent=pool[Math.floor(Math.random()*pool.length)];
+  const left=Math.random()<.5,W=innerWidth,H=innerHeight;
+  const sx=left?-60:W+60, sy=H*(.5+Math.random()*.4);
+  const tx=W*(.3+Math.random()*.4), ty=H*(.25+Math.random()*.35);
+  el.style.left=sx+'px';el.style.top=sy+'px';
+  show.appendChild(el);
+  const mx=(sx+tx)/2, my=Math.min(sy,ty)-H*.25;
+  const a=el.animate([
+    {transform:'translate(0,0) rotate(0) scale(1)'},
+    {transform:`translate(${mx-sx}px,${my-sy}px) rotate(300deg) scale(1.2)`,offset:.5},
+    {transform:`translate(${tx-sx}px,${ty-sy}px) rotate(720deg) scale(1.5)`}
+  ],{duration:1100+Math.random()*500,easing:'ease-in'});
+  a.onfinish=()=>{
+    el.textContent='💥';
+    const k=document.createElement('div');
+    k.className='kk';k.textContent=words[Math.floor(Math.random()*words.length)];
+    k.style.left=Math.max(8,tx-40)+'px';k.style.top=ty+'px';k.style.setProperty('--r',(Math.random()*30-15)+'deg');
+    show.appendChild(k);
+    el.animate([{transform:`translate(${tx-sx}px,${ty-sy}px) scale(1.5)`,opacity:1},
+      {transform:`translate(${tx-sx}px,${ty-sy}px) scale(2.6)`,opacity:0}],{duration:500}).onfinish=()=>el.remove();
+    setTimeout(()=>k.remove(),1800);
+  };
+}
+function start(){
+  show.classList.remove('on');void show.offsetWidth;
+  show.classList.add('on');
+  clearInterval(loop);
+  loop=setInterval(throwFruit,260);
+  if(navigator.vibrate)navigator.vibrate([200,80,200]);
+}
+function stop(){clearInterval(loop);show.classList.remove('on');
+  show.querySelectorAll('.f,.kk').forEach(e=>e.remove());}
+yes.addEventListener('click',start);
+$('#again').addEventListener('click',start);
+$('#close').addEventListener('click',stop);
+</script>
+</body>
+</html>
